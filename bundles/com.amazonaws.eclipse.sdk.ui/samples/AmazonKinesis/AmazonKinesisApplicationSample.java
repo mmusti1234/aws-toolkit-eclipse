@@ -92,7 +92,7 @@ public final class AmazonKinesisApplicationSample {
                         credentialsProvider,
                         workerId);
         kinesisClientLibConfiguration.withInitialPositionInStream(SAMPLE_APPLICATION_INITIAL_POSITION_IN_STREAM);
-
+kinesisClientLibConfiguration.withCallProcessRecordsEvenForEmptyRecordList(true);
         IRecordProcessorFactory recordProcessorFactory = new AmazonKinesisApplicationRecordProcessorFactory();
         Worker worker = new Worker(recordProcessorFactory, kinesisClientLibConfiguration);
 
